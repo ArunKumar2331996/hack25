@@ -1,95 +1,81 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Dropdown from "../components/Dropdown";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <div className={styles.formSection}>
+          <h1 className={styles.title}>CBA travel planner</h1>
+          <p className={styles.description}>
+            Plan your travel with us. We will help you to plan your travel
+            with the best options available.
+          </p>
+          <br />
+          <h2>Select Your Preferences</h2>
+          
+          <div className={styles.twoColumnLayout}>            
+            <div className={styles.column}>
+              <div className={styles.textInputContainer}>
+                <label htmlFor="name">From Location</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  placeholder="Enter from location" 
+                  className={styles.textInput}
+                />
+              </div>
+              <div className={styles.textInputContainer}>
+                <label htmlFor="name">To where</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  placeholder="Enter To location" 
+                  className={styles.textInput}
+                />
+              </div>
+              <div className={styles.textInputContainer}>
+                <label htmlFor="name">Number of days</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  placeholder="Enter of days" 
+                  className={styles.textInput}
+                />
+              </div>
+              
+              <div className={styles.textInputContainer}>
+                <label htmlFor="email">Number of people</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  placeholder="Enter number of people" 
+                  className={styles.textInput}
+                />
+              </div>
+            </div>
+            <div className={styles.column}>
+              <Dropdown 
+                label="Type of Hotel" 
+                options={["5 star", "4 star", "3 star", "2 star", "Hostel", "Service Apartment"]} 
+                defaultOption="5 star"
+              />
+              <Dropdown 
+                label="Type of Flight Ticket" 
+                options={["Business class", "Premium", "Premium economy", "Economy"]} 
+                defaultOption="Business class"
+              />
+              <Dropdown 
+                label="Type of place" 
+                options={["Beach", "Mountain", "Hidden falls", "Clubbing", "Back wates", "Sports", "Adventure"]}
+                defaultOption="Beach" 
+              />
+            </div>
+          </div>
         </div>
+        
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
